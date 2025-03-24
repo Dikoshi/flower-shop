@@ -68,13 +68,13 @@
                 echo '<img src="'.$row['image'].'" alt="'.$row['name'].'" class="product-image">';
                 
                 echo '<div class="product-details">';
-                echo '<h3><?=' .$row['name']. '?></h3>';
+                echo '<h3>' .$row['name']. '</h3>';
                 echo '<p class="price">'.$row['price'].' руб.</p>';
                 echo '<div class="description-container">';
                 echo '<p class="description">' .$row['description']. '</p>';
                 echo '</div>';
                 echo '<a href="product.php?id=<?=' .$row['id']. '?>" class="view-btn">Подробнее</a>';
-                echo '<a href="cart.php?add=<?= '.$row['id']. '?>" class="add-to-cart-btn">В корзину</a>';
+                echo '<a href="flower-shop/cart.php?add= '.$row['id']. '" class="add-to-cart-btn">В корзину</a>';
                 echo '</div>';
                 echo '</div>';
             }
