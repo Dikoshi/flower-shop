@@ -3,7 +3,7 @@ session_start();
 require_once 'config/db.php';
 
 if (empty($_SESSION['cart'])) {
-    header("Location: /cart.php");
+    header("Location: cart.php");
     exit;
 }
 

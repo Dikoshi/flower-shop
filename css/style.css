@@ -1,34 +1,176 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-}
+/* /css/style.css */
 
-header, footer {
-    background: #f4f4f4;
-    padding: 20px;
-    margin-bottom: 20px;
-}
+/* Основные цвета */
+:root {
+    --rose-pastel: #FFD1DC;
+    --rose-medium: #F4A6B6;
+    --rose-dark: #E75480;
+    --green-pastel: #D1E7D1;
+    --green-medium: #A7C4A7;
+    --brown-pastel: #E3D5C9;
+    --brown-medium: #C4B6A6;
+    --text-dark: #5A4A42;
+    --text-light: #FFF9F6;
+  }
+  
+  /* Основные стили */
+  body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-color: var(--green-pastel);
+      color: var(--text-dark);
+  }
+  
+  /* Фоновое изображение */
+  body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+          linear-gradient(rgba(255, 209, 220, 0.2), rgba(209, 231, 209, 0.3)),
+          url('../img/background.jpg') center/cover no-repeat;
+      filter: blur(4px);
+      z-index: -1;
+  }
+  
+  /* Контейнер */
+  .container {
+      width: 90%;
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(90, 74, 66, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid var(--brown-pastel);
+  }
+  
+  /* Товары */
+  .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      margin: 30px 0;
+  }
+  
+  /*
+  .product {
+      width: 250px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(90, 74, 66, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--brown-pastel);
+  }
+  */
+  .product-image-container {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+  }
+  
+  .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+  }
+  
+  .product:hover .product-image {
+      transform: scale(1.1);
+  }
+  
+  /* В PHP-файлах измените вывод изображений на: */
+  /*
+  echo '<div class="product-image-container">';
+  echo '<img src="../img/product'.$row['id'].'.jpg" alt="'.$row['name'].'" class="product-image">';
+  echo '</div>';
+  */
 
-.products {
-    display: flex;
-    gap: 20px;
-}
-
+  /* Стили для карточек товаров */
 .product {
-    border: 1px solid #ddd;
-    padding: 10px;
-    width: 200px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(90, 74, 66, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--brown-pastel);
+    display: flex;
+    flex-direction: column;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.product-details {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.description-container {
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.description {
+    color: var(--text-dark);
+    font-size: 0.9em;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--rose-dark);
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--green-medium);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--rose-medium);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.view-btn:hover {
+    background-color: var(--green-pastel);
+    color: var(--text-dark);
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--rose-dark);
 }
